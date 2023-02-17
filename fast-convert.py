@@ -94,9 +94,13 @@ class Ui_MainWindow(object):
         item_out_7.setData(QtCore.Qt.UserRole, '1000000')
         self.out_convert_list.addItem(item_out_7)
 
+        #DisplayZone
+
         self.display = QtWidgets.QLCDNumber(self.centralwidget)
         self.display.setGeometry(QtCore.QRect(10, 370, 481, 81))
         self.display.setObjectName("display")
+
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
         font = QtGui.QFont()
@@ -201,19 +205,19 @@ class Ui_MainWindow(object):
 
         def out_selection(out_select):
             if out_select[0].data(QtCore.Qt.UserRole) == "1":
-                pass
+                return 1
             elif out_select[0].data(QtCore.Qt.UserRole) == "10":
-                pass
+                return 10
             elif out_select[0].data(QtCore.Qt.UserRole) == "100":
-                pass
+                return 100
             elif out_select[0].data(QtCore.Qt.UserRole) == "1000":
-                pass
+                return 1000
             elif out_select[0].data(QtCore.Qt.UserRole) == "10000":
-                pass
+                return 10000
             elif out_select[0].data(QtCore.Qt.UserRole) == "100000":
-                pass
+                return 100000
             elif out_select[0].data(QtCore.Qt.UserRole) == "1000000":
-                pass
+                return 1000000
             else:
                 print('Error, probably nothing select in Out List')
 
@@ -221,24 +225,71 @@ class Ui_MainWindow(object):
 
         in_select = self.in_convert_list.selectedItems()
         out_select = self.out_convert_list.selectedItems()
+        input_number = self.input_line.text()
 
         if len(in_select) == 1 and len(out_select) == 1:
-            if in_select[0].data(QtCore.Qt.UserRole) == "1":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "10":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "100":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "1000":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "10000":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "100000":
-                out_selection(out_select)
-            elif in_select[0].data(QtCore.Qt.UserRole) == "1000000":
-                out_selection(out_select)
+            if len(input_number) > 0:
+                input_number = int(input_number)
+                if in_select[0].data(QtCore.Qt.UserRole) == "1":
+                    out = out_selection(out_select)
+                    if out < 1:
+                        display = input_number * out
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/1)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "10":
+                    out = out_selection(out_select)
+                    if out < 10:
+                        display = input_number * 10/out
+                        self.display.display(display) 
+                    else:
+                        display = input_number/(out/10)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "100":
+                    out = out_selection(out_select)
+                    if out < 100:  
+                        display = input_number * (100/out)
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/100)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "1000":
+                    out = out_selection(out_select)
+                    if out < 1000:
+                        display = input_number * (1000/out)
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/1000)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "10000":
+                    out = out_selection(out_select)
+                    if out < 10000:
+                        display = input_number * (10000/out)
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/10000)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "100000":
+                    out = out_selection(out_select)
+                    if out < 100000:
+                        display = input_number * (100000/out)
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/100000)
+                        self.display.display(display)
+                elif in_select[0].data(QtCore.Qt.UserRole) == "1000000":
+                    out = out_selection(out_select)
+                    if out < 1000000:
+                        display = input_number * (1000000/out)
+                        self.display.display(display)
+                    else:
+                        display = input_number/(out/1000000)
+                        self.display.display(display)
+                else:
+                    print('Error, probably nothing select in In List')
             else:
-                print('Error, probably nothing select in In List')
+                print("You don't enter something in input field!")
         else:
             print("You can't transform a messure in nothing !?")        
 
