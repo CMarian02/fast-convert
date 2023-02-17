@@ -10,6 +10,9 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("background-color: rgb(100, 86, 81);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        #Title
+
         self.title = QtWidgets.QLabel(self.centralwidget)
         self.title.setGeometry(QtCore.QRect(-4, 2, 511, 41))
         font = QtGui.QFont()
@@ -18,11 +21,20 @@ class Ui_MainWindow(object):
         self.title.setFont(font)
         self.title.setAlignment(QtCore.Qt.AlignCenter)
         self.title.setObjectName("title")
+
+        #Input Line
+
         self.input_line = QtWidgets.QLineEdit(self.centralwidget)
         self.input_line.setGeometry(QtCore.QRect(130, 320, 241, 51))
         self.input_line.setText("")
         self.input_line.setMaxLength(30)
         self.input_line.setObjectName("input_line")
+        validator = QtGui.QIntValidator()
+        validator.setBottom(0)
+        self.input_line.setValidator(validator)
+        #Convert Button
+
+
         self.convert_button = QtWidgets.QPushButton(self.centralwidget)
         self.convert_button.setGeometry(QtCore.QRect(140, 470, 211, 71))
         self.convert_button.setObjectName("convert_button")
@@ -194,7 +206,7 @@ class Ui_MainWindow(object):
                 pass
             elif out_select[0].data(QtCore.Qt.UserRole) == "100":
                 pass
-            elif out_select[0].data(QtCore.Qt.UesrRole) == "1000":
+            elif out_select[0].data(QtCore.Qt.UserRole) == "1000":
                 pass
             elif out_select[0].data(QtCore.Qt.UserRole) == "10000":
                 pass
@@ -226,7 +238,7 @@ class Ui_MainWindow(object):
             elif in_select[0].data(QtCore.Qt.UserRole) == "1000000":
                 out_selection(out_select)
             else:
-                prit('Error, probably nothing select in In List')
+                print('Error, probably nothing select in In List')
         else:
             print("You can't transform a messure in nothing !?")        
 
