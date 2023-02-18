@@ -8,7 +8,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(500, 600)
         MainWindow.setMinimumSize(QtCore.QSize(500, 600))
         MainWindow.setMaximumSize(QtCore.QSize(500, 600))
-        MainWindow.setStyleSheet("background-color: rgb(100, 86, 81);")
+        MainWindow.setStyleSheet("background-color:#0C0C0C")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -17,22 +17,24 @@ class Ui_MainWindow(object):
         self.title = QtWidgets.QLabel(self.centralwidget)
         self.title.setGeometry(QtCore.QRect(-4, 2, 511, 41))
         font = QtGui.QFont()
-        font.setFamily("Bebas Neue")
         font.setPointSize(26)
         self.title.setFont(font)
         self.title.setAlignment(QtCore.Qt.AlignCenter)
         self.title.setObjectName("title")
+        self.title.setStyleSheet("color:#E6AF2E; font-family:Bebas Neue; font-size:45px;")
 
         #Input Line
 
         self.input_line = QtWidgets.QLineEdit(self.centralwidget)
         self.input_line.setGeometry(QtCore.QRect(130, 320, 241, 51))
         self.input_line.setText("")
+        self.input_line.setAlignment(QtCore.Qt.AlignCenter)
         self.input_line.setMaxLength(5)
         self.input_line.setObjectName("input_line")
         validator = QtGui.QIntValidator()
         validator.setBottom(0)
         self.input_line.setValidator(validator)
+        self.input_line.setStyleSheet("border-radius:20px; background-color:#1E1E1E; font-family: Lato; color:white; font-size: 20px")
 
         #Convert Button
 
@@ -40,6 +42,8 @@ class Ui_MainWindow(object):
         self.convert_button.setGeometry(QtCore.QRect(140, 470, 211, 71))
         self.convert_button.setObjectName("convert_button")
         self.convert_button.clicked.connect(lambda:self.take_element())
+        self.convert_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.convert_button.setStyleSheet("border-radius:30px; background-color:#FF8F00 ; color:#FFFFFF")
        
         #Create IN/OUT Lists
 
@@ -49,8 +53,9 @@ class Ui_MainWindow(object):
         #DisplayZone
 
         self.display = QtWidgets.QLCDNumber(self.centralwidget)
-        self.display.setGeometry(QtCore.QRect(10, 370, 481, 81))
+        self.display.setGeometry(QtCore.QRect(10, 380, 481, 81))
         self.display.setObjectName("display")
+        self.display.setStyleSheet('border-radius: 15px; background-color:#FF8F00')
 
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
@@ -79,7 +84,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.menubar.setFont(font)
-        self.menubar.setStyleSheet("background-color: rgb(118, 103, 78);")
+        self.menubar.setStyleSheet("background-color: #1E1E1E; color:#E6AF2E")
         self.menubar.setObjectName("menubar")
         self.menuHELP = QtWidgets.QMenu(self.menubar)
         font = QtGui.QFont()
@@ -111,20 +116,24 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.in_convert_list.isSortingEnabled()
         self.in_convert_list.setSortingEnabled(False)
 
-        #List IN◙
+        #List IN
         item = self.in_convert_list.item(0)
-        item.setText(_translate("MainWindow", "mm"))
+        item.setText(_translate("MainWindow", "----Distance----"))
+        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
         item = self.in_convert_list.item(1)
-        item.setText(_translate("MainWindow", "cm"))
+        item.setText(_translate("MainWindow", "mm"))
         item = self.in_convert_list.item(2)
-        item.setText(_translate("MainWindow", "dm"))
+        item.setText(_translate("MainWindow", "cm"))
         item = self.in_convert_list.item(3)
-        item.setText(_translate("MainWindow", "m"))
+        item.setText(_translate("MainWindow", "dm"))
         item = self.in_convert_list.item(4)
-        item.setText(_translate("MainWindow", "dam"))
+        item.setText(_translate("MainWindow", "m"))
         item = self.in_convert_list.item(5)
-        item.setText(_translate("MainWindow", "hm"))
+        item.setText(_translate("MainWindow", "damm"))
         item = self.in_convert_list.item(6)
+        item.setText(_translate("MainWindow", "hm"))
+        item = self.in_convert_list.item(7)
         item.setText(_translate("MainWindow", "km"))
         self.in_convert_list.setSortingEnabled(__sortingEnabled)
         __sortingEnabled = self.out_convert_list.isSortingEnabled()
