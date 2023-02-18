@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QFont
 from list_manager import *
 
 
@@ -55,6 +56,7 @@ class Ui_MainWindow(object):
         self.display = QtWidgets.QLCDNumber(self.centralwidget)
         self.display.setGeometry(QtCore.QRect(10, 380, 481, 81))
         self.display.setObjectName("display")
+        self.display.setDigitCount(10)
         self.display.setStyleSheet('border-radius: 15px; background-color:#FF8F00')
 
 
@@ -118,42 +120,48 @@ class Ui_MainWindow(object):
 
         #List IN
         item = self.in_convert_list.item(0)
-        item.setText(_translate("MainWindow", "----Distance----"))
-        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setText(_translate("MainWindow", "Distance"))
         item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setFont(QFont("Arial",weight=QFont.Bold))
         item = self.in_convert_list.item(1)
-        item.setText(_translate("MainWindow", "mm"))
+        item.setText(_translate("MainWindow", "millimeter[mm]"))
         item = self.in_convert_list.item(2)
-        item.setText(_translate("MainWindow", "cm"))
+        item.setText(_translate("MainWindow", "centimeter[cm]"))
         item = self.in_convert_list.item(3)
-        item.setText(_translate("MainWindow", "dm"))
+        item.setText(_translate("MainWindow", "decimeter[dm]"))
         item = self.in_convert_list.item(4)
-        item.setText(_translate("MainWindow", "m"))
+        item.setText(_translate("MainWindow", "meter[m]"))
         item = self.in_convert_list.item(5)
-        item.setText(_translate("MainWindow", "damm"))
+        item.setText(_translate("MainWindow", "decameter[dam]"))
         item = self.in_convert_list.item(6)
-        item.setText(_translate("MainWindow", "hm"))
+        item.setText(_translate("MainWindow", "hectometer[hm]"))
         item = self.in_convert_list.item(7)
-        item.setText(_translate("MainWindow", "km"))
+        item.setText(_translate("MainWindow", "kilometer[km]"))
         self.in_convert_list.setSortingEnabled(__sortingEnabled)
         __sortingEnabled = self.out_convert_list.isSortingEnabled()
         self.out_convert_list.setSortingEnabled(False)
 
         #LIST OUT
         item = self.out_convert_list.item(0)
-        item.setText(_translate("MainWindow", "mm"))
+        item.setText(_translate("MainWindow", "Distance"))
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setFont(QFont("Arial",weight=QFont.Bold))
         item = self.out_convert_list.item(1)
-        item.setText(_translate("MainWindow", "cm"))
+        item.setText(_translate("MainWindow", "millimeter[mm]"))
         item = self.out_convert_list.item(2)
-        item.setText(_translate("MainWindow", "dm"))
+        item.setText(_translate("MainWindow", "centimeter[cm]"))
         item = self.out_convert_list.item(3)
-        item.setText(_translate("MainWindow", "m"))
+        item.setText(_translate("MainWindow", "decimeter[dm]"))
         item = self.out_convert_list.item(4)
-        item.setText(_translate("MainWindow", "dam"))
+        item.setText(_translate("MainWindow", "meter[m]"))
         item = self.out_convert_list.item(5)
-        item.setText(_translate("MainWindow", "hm"))
+        item.setText(_translate("MainWindow", "decameter[dam]"))
         item = self.out_convert_list.item(6)
-        item.setText(_translate("MainWindow", "km"))
+        item.setText(_translate("MainWindow", "hectometer[hm]"))
+        item = self.out_convert_list.item(7)
+        item.setText(_translate("MainWindow", "kilometer[km]"))
 
 
         self.out_convert_list.setSortingEnabled(__sortingEnabled)
