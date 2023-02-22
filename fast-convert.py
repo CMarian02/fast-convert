@@ -138,6 +138,25 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "hectometer[hm]"))
         item = self.in_convert_list.item(7)
         item.setText(_translate("MainWindow", "kilometer[km]"))
+        item = self.in_convert_list.item(8)
+        item.setText(_translate("MainWindow", "Mass"))
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setFont(QFont("Arial",weight=QFont.Bold))
+        item = self.in_convert_list.item(9)
+        item.setText(_translate("MainWindow", "Miligram[mg]"))
+        item = self.in_convert_list.item(10)
+        item.setText(_translate("MainWindow", "Centigram[cg]"))
+        item = self.in_convert_list.item(11)
+        item.setText(_translate("MainWindow", "Decigram[dg]"))
+        item = self.in_convert_list.item(12)
+        item.setText(_translate("MainWindow", "Gram[g]"))
+        item = self.in_convert_list.item(13)
+        item.setText(_translate("MainWindow", "Decagram[dag]"))
+        item = self.in_convert_list.item(14)
+        item.setText(_translate("MainWindow", "Hectogram[hg]"))
+        item = self.in_convert_list.item(15)
+        item.setText(_translate("MainWindow", "Kilogram[kg]"))
         self.in_convert_list.setSortingEnabled(__sortingEnabled)
         __sortingEnabled = self.out_convert_list.isSortingEnabled()
         self.out_convert_list.setSortingEnabled(False)
@@ -162,7 +181,25 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "hectometer[hm]"))
         item = self.out_convert_list.item(7)
         item.setText(_translate("MainWindow", "kilometer[km]"))
-
+        item = self.out_convert_list.item(8)
+        item.setText(_translate("MainWindow", "Mass"))
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setFlags(QtCore.Qt.NoItemFlags)
+        item.setFont(QFont("Arial",weight=QFont.Bold))
+        item = self.out_convert_list.item(9)
+        item.setText(_translate("MainWindow", "Miligram[mg]"))
+        item = self.out_convert_list.item(10)
+        item.setText(_translate("MainWindow", "Centigram[cg]"))
+        item = self.out_convert_list.item(11)
+        item.setText(_translate("MainWindow", "Decigram[dg]"))
+        item = self.out_convert_list.item(12)
+        item.setText(_translate("MainWindow", "Gram[g]"))
+        item = self.out_convert_list.item(13)
+        item.setText(_translate("MainWindow", "Decagram[dag]"))
+        item = self.out_convert_list.item(14)
+        item.setText(_translate("MainWindow", "Hectogram[hg]"))
+        item = self.out_convert_list.item(15)
+        item.setText(_translate("MainWindow", "Kilogram[kg]"))
 
         self.out_convert_list.setSortingEnabled(__sortingEnabled)
         self.label_2.setText(_translate("MainWindow", "IN"))
@@ -197,68 +234,71 @@ class Ui_MainWindow(object):
         input_number = self.input_line.text()
 
         if len(in_select) == 1 and len(out_select) == 1:
-            if len(input_number) > 0:
-                input_number = int(input_number)
-                if in_select[0].data(QtCore.Qt.UserRole) == "1":
-                    out = out_selection(out_select)
-                    if out < 1:
-                        display = input_number * out
-                        self.display.display(display)
+            if self.in_convert_list.row(in_select[0]) < 8 and self.out_convert_list.row(out_select[0]) < 8:
+                if len(input_number) > 0:
+                    input_number = int(input_number)
+                    if in_select[0].data(QtCore.Qt.UserRole) == "1":
+                        out = out_selection(out_select)
+                        if out < 1:
+                            display = input_number * out
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/1)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "10":
+                        out = out_selection(out_select)
+                        if out < 10:
+                            display = input_number * 10/out
+                            self.display.display(display) 
+                        else:
+                            display = input_number/(out/10)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "100":
+                        out = out_selection(out_select)
+                        if out < 100:  
+                            display = input_number * (100/out)
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/100)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "1000":
+                        out = out_selection(out_select)
+                        if out < 1000:
+                            display = input_number * (1000/out)
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/1000)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "10000":
+                        out = out_selection(out_select)
+                        if out < 10000:
+                            display = input_number * (10000/out)
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/10000)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "100000":
+                        out = out_selection(out_select)
+                        if out < 100000:
+                            display = input_number * (100000/out)
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/100000)
+                            self.display.display(display)
+                    elif in_select[0].data(QtCore.Qt.UserRole) == "1000000":
+                        out = out_selection(out_select)
+                        if out < 1000000:
+                            display = input_number * (1000000/out)
+                            self.display.display(display)
+                        else:
+                            display = input_number/(out/1000000)
+                            self.display.display(display)
                     else:
-                        display = input_number/(out/1)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "10":
-                    out = out_selection(out_select)
-                    if out < 10:
-                        display = input_number * 10/out
-                        self.display.display(display) 
-                    else:
-                        display = input_number/(out/10)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "100":
-                    out = out_selection(out_select)
-                    if out < 100:  
-                        display = input_number * (100/out)
-                        self.display.display(display)
-                    else:
-                        display = input_number/(out/100)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "1000":
-                    out = out_selection(out_select)
-                    if out < 1000:
-                        display = input_number * (1000/out)
-                        self.display.display(display)
-                    else:
-                        display = input_number/(out/1000)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "10000":
-                    out = out_selection(out_select)
-                    if out < 10000:
-                        display = input_number * (10000/out)
-                        self.display.display(display)
-                    else:
-                        display = input_number/(out/10000)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "100000":
-                    out = out_selection(out_select)
-                    if out < 100000:
-                        display = input_number * (100000/out)
-                        self.display.display(display)
-                    else:
-                        display = input_number/(out/100000)
-                        self.display.display(display)
-                elif in_select[0].data(QtCore.Qt.UserRole) == "1000000":
-                    out = out_selection(out_select)
-                    if out < 1000000:
-                        display = input_number * (1000000/out)
-                        self.display.display(display)
-                    else:
-                        display = input_number/(out/1000000)
-                        self.display.display(display)
+                        print('Error, probably nothing select in In List')
                 else:
-                    print('Error, probably nothing select in In List')
+                    print("You don't enter something in input field!")
             else:
-                print("You don't enter something in input field!")
+                print("You can't transform different messures with different domains.")
         else:
             print("You can't transform a messure in nothing !?")        
 
