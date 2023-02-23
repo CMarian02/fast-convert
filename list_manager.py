@@ -6,7 +6,6 @@ def init_in_list(central_widget):
     in_convert_list = QtWidgets.QListWidget(central_widget)
     in_convert_list.setGeometry(QtCore.QRect(10, 80, 121, 231))
     in_convert_list.setObjectName("in_convert_list")
-    in_convert_list.setStyleSheet("border-radius: 10px; background-color: #1D1E22; color:#CFCFCF")
 
     categ_in_1 = QtWidgets.QListWidgetItem()
     categ_in_1.setData(QtCore.Qt.UserRole, "DIS")
@@ -79,7 +78,6 @@ def  init_out_list(central_widget):
     out_convert_list = QtWidgets.QListWidget(central_widget)
     out_convert_list.setGeometry(QtCore.QRect(370, 80, 121, 221))
     out_convert_list.setObjectName("out_convert_list")
-    out_convert_list.setStyleSheet("border-radius: 10px; background-color: #1D1E22; color:#CFCFCF")
 
     categ_out_1 = QtWidgets.QListWidgetItem()
     categ_out_1.setData(QtCore.Qt.UserRole, "DIS")

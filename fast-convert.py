@@ -9,7 +9,6 @@ class Ui_MainWindow(object):
         MainWindow.resize(500, 600)
         MainWindow.setMinimumSize(QtCore.QSize(500, 600))
         MainWindow.setMaximumSize(QtCore.QSize(500, 600))
-        MainWindow.setStyleSheet("background-color:#0C0C0C")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -22,7 +21,6 @@ class Ui_MainWindow(object):
         self.title.setFont(font)
         self.title.setAlignment(QtCore.Qt.AlignCenter)
         self.title.setObjectName("title")
-        self.title.setStyleSheet("color:#E6AF2E; font-family:Bebas Neue; font-size:45px;")
 
         #Input Line
 
@@ -35,7 +33,6 @@ class Ui_MainWindow(object):
         validator = QtGui.QIntValidator()
         validator.setBottom(0)
         self.input_line.setValidator(validator)
-        self.input_line.setStyleSheet("border-radius:20px; background-color:#1E1E1E; font-family: Lato; color:white; font-size: 20px")
 
         #Convert Button
 
@@ -44,7 +41,6 @@ class Ui_MainWindow(object):
         self.convert_button.setObjectName("convert_button")
         self.convert_button.clicked.connect(lambda:self.take_element())
         self.convert_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.convert_button.setStyleSheet("border-radius:30px; background-color:#FF8F00 ; color:#FFFFFF")
        
         #Create IN/OUT Lists
 
@@ -57,8 +53,6 @@ class Ui_MainWindow(object):
         self.display.setGeometry(QtCore.QRect(10, 380, 481, 81))
         self.display.setObjectName("display")
         self.display.setDigitCount(10)
-        self.display.setStyleSheet('border-radius: 15px; background-color:#FF8F00')
-
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
@@ -86,7 +80,6 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.menubar.setFont(font)
-        self.menubar.setStyleSheet("background-color: #1E1E1E; color:#E6AF2E")
         self.menubar.setObjectName("menubar")
         self.menuHELP = QtWidgets.QMenu(self.menubar)
         font = QtGui.QFont()
@@ -234,7 +227,7 @@ class Ui_MainWindow(object):
         input_number = self.input_line.text()
 
         if len(in_select) == 1 and len(out_select) == 1:
-            if self.in_convert_list.row(in_select[0]) < 8 and self.out_convert_list.row(out_select[0]) < 8:
+            if (self.in_convert_list.row(in_select[0]) < 8 and self.out_convert_list.row(out_select[0]) < 8) or (self.in_convert_list.row(in_select[0]) > 8 and self.out_convert_list.row(out_select[0]) > 8 and self.in_convert_list.row(in_select[0]) < 16 and self.out_convert_list.row(out_select[0]) < 16):
                 if len(input_number) > 0:
                     input_number = int(input_number)
                     if in_select[0].data(QtCore.Qt.UserRole) == "1":
@@ -298,6 +291,7 @@ class Ui_MainWindow(object):
                 else:
                     print("You don't enter something in input field!")
             else:
+                self.display.display("error")
                 print("You can't transform different messures with different domains.")
         else:
             print("You can't transform a messure in nothing !?")        
@@ -307,6 +301,9 @@ class Ui_MainWindow(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    with open('basic_styles.css', 'r') as f:
+        stylesheet = f.read()
+    app.setStyleSheet(stylesheet)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)

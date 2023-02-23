@@ -1,0 +1,51 @@
+*{
+    background-color:#0C0C0C;
+}
+
+QListWidget#in_convert_list,
+QListWidget#out_convert_list{
+    border-radius:10px;
+    background-color: #1D1E22;
+    color:#CFCFCF;
+}
+
+QScrollBar:vertical{
+    background-color:green;
+    width: 14px;
+    border: 1 solid;
+    border-radius: 10px;
+}
+
+QScrollBar:vertical::add-page{
+    background:none;
+}
+
+
+QLabel#title{
+    color:#E6AF2E;
+    font-family:Bebas Neue;
+    font-size:45px;
+}
+
+QLineEdit#input_line{
+    border-radius:20px;
+    background-color:#1E1E1E;
+    font-family: Lato; color:white;
+    font-size: 20px;
+}
+
+QPushButton#convert_button{
+    border-radius:30px;
+    background-color:#FF8F00;
+    color:#FFFFFF;
+}
+
+QLCDNumber#display{
+    border-radius: 15px;
+    background-color:#FF8F00;
+}
+
+QMenuBar#menubar{
+    background-color: #1E1E1E;
+    color:#E6AF2E;
+}
