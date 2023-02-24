@@ -12,14 +12,23 @@ QListWidget#out_convert_list{
 QScrollBar:vertical{
     background-color:green;
     width: 14px;
-    border: 1 solid;
-    border-radius: 10px;
+    border: none;
+    border-radius: 20px;
 }
 
-QScrollBar:vertical::add-page{
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical{
     background:none;
+    border-radius: 50%;
+    border:none;
 }
 
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical{
+    background: none;
+    border: none;
+}
 
 QLabel#title{
     color:#E6AF2E;
