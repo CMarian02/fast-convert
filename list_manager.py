@@ -71,6 +71,30 @@ def init_in_list(central_widget):
     item_in_14.setData(QtCore.Qt.UserRole, '1000000')
     in_convert_list.addItem(item_in_14)
 
+    categ_in_3 = QtWidgets.QListWidgetItem()
+    categ_in_3.setData(QtCore.Qt.UserRole, 'Temp')
+    in_convert_list.addItem(categ_in_3)
+
+    item_in_15 = QtWidgets.QListWidgetItem()
+    item_in_15.setData(QtCore.Qt.UserRole, "Kelv")
+    in_convert_list.addItem(item_in_15)
+
+    item_in_16 = QtWidgets.QListWidgetItem()
+    item_in_16.setData(QtCore.Qt.UserRole, "Cels")
+    in_convert_list.addItem(item_in_16)
+
+    item_in_17 = QtWidgets.QListWidgetItem()
+    item_in_17.setData(QtCore.Qt.UserRole, "Far")
+    in_convert_list.addItem(item_in_17)
+
+    item_in_18 = QtWidgets.QListWidgetItem()
+    item_in_18.setData(QtCore.Qt.UserRole, "Newt")
+    in_convert_list.addItem(item_in_18)
+
+    item_in_19 = QtWidgets.QListWidgetItem()
+    item_in_19.setData(QtCore.Qt.UserRole, "Reaum")
+    in_convert_list.addItem(item_in_19)
+
     return in_convert_list
 
 def  init_out_list(central_widget):
@@ -142,5 +166,29 @@ def  init_out_list(central_widget):
     item_out_14 = QtWidgets.QListWidgetItem()
     item_out_14.setData(QtCore.Qt.UserRole, '1000000')
     out_convert_list.addItem(item_out_14)
+    
+    categ_out_3 = QtWidgets.QListWidgetItem()
+    categ_out_3.setData(QtCore.Qt.UserRole, 'Temp')
+    out_convert_list.addItem(categ_out_3)
+
+    item_out_15 = QtWidgets.QListWidgetItem()
+    item_out_15.setData(QtCore.Qt.UserRole, "Kelv")
+    out_convert_list.addItem(item_out_15)
+
+    item_out_16 = QtWidgets.QListWidgetItem()
+    item_out_16.setData(QtCore.Qt.UserRole, "Cels")
+    out_convert_list.addItem(item_out_16)
+
+    item_out_17 = QtWidgets.QListWidgetItem()
+    item_out_17.setData(QtCore.Qt.UserRole, "Far")
+    out_convert_list.addItem(item_out_17)
+
+    item_out_18 = QtWidgets.QListWidgetItem()
+    item_out_18.setData(QtCore.Qt.UserRole, "Newt")
+    out_convert_list.addItem(item_out_18)
+
+    item_out_19 = QtWidgets.QListWidgetItem()
+    item_out_19.setData(QtCore.Qt.UserRole, "Reaum")
+    out_convert_list.addItem(item_out_19)
     
     return out_convert_list
