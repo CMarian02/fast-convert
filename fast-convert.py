@@ -145,6 +145,24 @@ class Ui_MainWindow(object):
             else:
                 print('Error, probably nothing select in Out List')
 
+        def to_celsius(in_select, input_number):
+            if in_select[0].data(QtCore.Qt.UserRole) == "Kelv":
+                cels = input_number - 273.15
+                return cels
+            elif in_select[0].data(QtCore.Qt.UserRole) == "Cels":
+                return input_number
+            elif in_select[0].data(QtCore.Qt.UserRole) == "Far":
+                cels = (input_number - 32)/1.8
+                return cels
+            elif in_select[0].data(QtCore.Qt.UserRole) == "Newt":
+                cels = input_number/0.33
+                return cels
+            elif in_select[0].data(QtCore.Qt.UserRole) == "Reaum":
+                cels = input_number * 1.25
+                return cels
+            else:
+                print('Error, probably nothing select in Out List')
+
         #Take selected items.
 
         in_select = self.in_convert_list.selectedItems()
@@ -210,11 +228,40 @@ class Ui_MainWindow(object):
                             self.display.display(display)
                         else:
                             display = input_number/(out/1000000)
-                            self.display.display(display)
+                            self.display.display(display)    
                     else:
                         print('Error, probably nothing select in In List')
                 else:
                     print("You don't enter something in input field!")
+            
+            elif (self.in_convert_list.row(in_select[0]) > 16 and self.out_convert_list.row(out_select[0]) > 16 and self.in_convert_list.row(in_select[0]) < 22 and self.out_convert_list.row(out_select[0]) < 22):
+                if len(input_number) > 0:
+                    input_number = int(input_number)
+                    if out_select[0].data(QtCore.Qt.UserRole) == "Kelv":
+                        cels = to_celsius(in_select, input_number)
+                        display = cels + 273.15
+                        self.display.display(display)
+                    elif out_select[0].data(QtCore.Qt.UserRole) == "Cels":
+                        cels = to_celsius(in_select, input_number)
+                        display = cels
+                        self.display.display(display)
+                    elif out_select[0].data(QtCore.Qt.UserRole) == "Far":
+                        cels = to_celsius(in_select, input_number)
+                        display = (cels * 1.8) + 32
+                        self.display.display(display)
+                    elif out_select[0].data(QtCore.Qt.UserRole) == "Newt":
+                        cels = to_celsius(in_select, input_number)
+                        display = cels * 0.33
+                        self.display.display(display)
+                    elif out_select[0].data(QtCore.Qt.UserRole) == "Reaum":
+                        cels = to_celsius(in_select, input_number)
+                        display = cels/1.25
+                        self.display.display(display)
+                    else:
+                        print('Error, probably nothing select in Out List!')
+                else:
+                    print("You don't enter something in input field!")
+                
             else:
                 self.display.display("error")
                 print("You can't transform different messures with different domains.")
