@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.display.setDigitCount(10)
         
         #Labels - in/out
-        
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -91,6 +91,7 @@ class Ui_MainWindow(object):
 
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
+        self.statusbar.setSizeGripEnabled(False)
         MainWindow.setStatusBar(self.statusbar)
         self.menubar.addAction(self.menuHELP.menuAction())
         self.menubar.addAction(self.menuEXIT.menuAction())
