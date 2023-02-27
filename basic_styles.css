@@ -11,6 +11,27 @@ QListWidget#out_convert_list{
     color:#CFCFCF;
 }
 
+QListWidget#in_convert_list::item:hover,
+QListWidget#out_convert_list::item:hover{
+    background-color: #90744b59;
+    border-radius: 5px;
+}
+
+QListWidget::item:disabled{
+    background-color: #1D1E22;
+}
+
+QListWidget#in_convert_list::item:selected,
+QListWidget#out_convert_list::item:selected{
+    color:white;
+    background-color:#a27d4580;
+    border-radius: 5px;
+}
+
+*:focus{
+    outline: none;
+}
+
 /* QScrollBar  */
 
 QScrollBar:vertical{
