@@ -57,20 +57,12 @@ class Ui_MainWindow(object):
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
-        font = QtGui.QFont()
-        font.setFamily("Bebas Neue")
-        font.setPointSize(14)
-        self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
+        self.label_2.setObjectName("in_text")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(370, 52, 121, 21))
-        font = QtGui.QFont()
-        font.setFamily("Bebas Neue")
-        font.setPointSize(14)
-        self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_3.setObjectName("label_3")
+        self.label_3.setObjectName("out_text")
         MainWindow.setCentralWidget(self.centralwidget)
         
         #MenuBar
