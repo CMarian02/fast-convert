@@ -2,6 +2,8 @@ QMainWindow{
     background-color:#0C0C0C;
 }
 
+/* QListWidget */
+
 QListWidget#in_convert_list,
 QListWidget#out_convert_list{
     border-radius:10px;
@@ -9,43 +11,57 @@ QListWidget#out_convert_list{
     color:#CFCFCF;
 }
 
-/* ScrollBar Zone 
+/* QScrollBar  */
 
 QScrollBar:vertical{
-    background:red;
+    background: #1D1E22;
+    height: 1px;
+    width: 12px;
+    border-radius: 5px;
 }
 
 QScrollBar::handle:vertical{
-    background: white;
-    border-radius:50% !important;
-    padding: 0;
-    margin: 0;
-    width:100px;
-    height:100px;
+    background: #2b2d34;
+    border-radius:5px;
+    min-height: 10px;
+    max-height: 15px;
 }
 
-QScrollBar::handle:vertical:hover {
-    background:green;
-    height:5px;
+QScrollBar::handle:hover:vertical{
+    background: #161619;
+    border-radius: 5px;
+    min-height: 10px;
+    max-height: 15px;
 }
-
 
 QScrollBar::add-page:vertical,
 QScrollBar::sub-page:vertical{
-    background: none;
+    background:#1D1E22
+    
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical{
+    border-radius: 5px;
+    background:none;
+    
 }
 
 QScrollBar::up-arrow:vertical,
 QScrollBar::down-arrow:vertical{
     background:none;
-
+    border:none;
+    color: none;
 }
-*/
+
+/* QLabel - Title */
+
 QLabel#title{
     color:#E6AF2E;
     font-family:Bebas Neue;
     font-size:45px;
 }
+
+/* QLineEdit */
 
 QLineEdit#input_line{
     border-radius:20px;
@@ -54,18 +70,45 @@ QLineEdit#input_line{
     font-size: 20px;
 }
 
+/* QPushButton */
+
 QPushButton#convert_button{
     border-radius:30px;
     background-color:#FF8F00;
-    color:#FFFFFF;
+    color:#eddcc5;
+    font-family: Bebas Neue;
+    font-size: 25px;
+    letter-spacing: 2px;
 }
+QPushButton#convert_button:hover{
+    color:white;
+}
+
+/* QLCDNumber */
 
 QLCDNumber#display{
     border-radius: 15px;
     background-color:#FF8F00;
 }
 
+/* QMenuBar */
+
 QMenuBar#menubar{
     background-color: #1E1E1E;
     color:#E6AF2E;
+}
+
+/* QLabel - in/out */
+
+QLabel#in_text{
+    font-family: Bebas Neue;
+    color:white;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+QLabel#out_text{
+    font-family: Bebas Neue;
+    color:white;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
