@@ -54,7 +54,9 @@ class Ui_MainWindow(object):
         self.display.setGeometry(QtCore.QRect(10, 380, 481, 81))
         self.display.setObjectName("display")
         self.display.setDigitCount(10)
-
+        
+        #Labels - in/out
+        
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
