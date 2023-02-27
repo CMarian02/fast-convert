@@ -9,6 +9,7 @@ QListWidget#out_convert_list{
     border-radius:10px;
     background-color: #1D1E22;
     color:#CFCFCF;
+    padding: 2px;
 }
 
 QListWidget#in_convert_list::item:hover,
