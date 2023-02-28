@@ -81,6 +81,7 @@ QLabel#title{
     color:#E6AF2E;
     font-family:Bebas Neue;
     font-size:45px;
+    margin-top: 5px;
 }
 
 /* QLineEdit */
@@ -111,13 +112,6 @@ QPushButton#convert_button:hover{
 QLCDNumber#display{
     border-radius: 15px;
     background-color:#FF8F00;
-}
-
-/* QMenuBar */
-
-QMenuBar#menubar{
-    background-color: #1E1E1E;
-    color:#E6AF2E;
 }
 
 /* QLabel - in/out */
