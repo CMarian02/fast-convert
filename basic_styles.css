@@ -10,6 +10,8 @@ QListWidget#out_convert_list{
     background-color: #1D1E22;
     color:#CFCFCF;
     padding: 2px;
+    font-family: Lato;
+    font-size: 13px;
 }
 
 QListWidget#in_convert_list::item:hover,
@@ -20,6 +22,7 @@ QListWidget#out_convert_list::item:hover{
 
 QListWidget::item:disabled{
     background-color: #1D1E22;
+    color:white;
 }
 
 QListWidget#in_convert_list::item:selected,
