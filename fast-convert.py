@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         #Convert Button
 
         self.convert_button = QtWidgets.QPushButton(self.centralwidget)
-        self.convert_button.setGeometry(QtCore.QRect(140, 470, 211, 71))
+        self.convert_button.setGeometry(QtCore.QRect(140, 495, 220, 80))
         self.convert_button.setObjectName("convert_button")
         self.convert_button.clicked.connect(lambda:self.take_element())
         self.convert_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -52,55 +52,30 @@ class Ui_MainWindow(object):
         #DisplayZone
 
         self.display = QtWidgets.QLCDNumber(self.centralwidget)
-        self.display.setGeometry(QtCore.QRect(10, 380, 481, 81))
+        self.display.setGeometry(QtCore.QRect(10, 390, 481, 81))
         self.display.setObjectName("display")
         self.display.setDigitCount(10)
+        
+        #Labels - in/out
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 52, 121, 21))
-        font = QtGui.QFont()
-        font.setFamily("Bebas Neue")
-        font.setPointSize(14)
-        self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
+        self.label_2.setObjectName("in_text")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(370, 52, 121, 21))
-        font = QtGui.QFont()
-        font.setFamily("Bebas Neue")
-        font.setPointSize(14)
-        self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_3.setObjectName("label_3")
+        self.label_3.setObjectName("out_text")
         MainWindow.setCentralWidget(self.centralwidget)
         
-        #MenuBar
-        
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 500, 21))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.menubar.setFont(font)
-        self.menubar.setObjectName("menubar")
-        self.menuHELP = QtWidgets.QMenu(self.menubar)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.menuHELP.setFont(font)
-        self.menuHELP.setObjectName("menuHELP")
-        self.menuEXIT = QtWidgets.QMenu(self.menubar)
-        self.menuEXIT.setObjectName("menuEXIT")
-        MainWindow.setMenuBar(self.menubar)
-        
+
         #StatusBar
 
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
+        self.statusbar.setSizeGripEnabled(False)
         MainWindow.setStatusBar(self.statusbar)
-        self.menubar.addAction(self.menuHELP.menuAction())
-        self.menubar.addAction(self.menuEXIT.menuAction())
+
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -123,8 +98,7 @@ class Ui_MainWindow(object):
         self.out_convert_list.setSortingEnabled(__sortingEnabled)
         self.label_2.setText(_translate("MainWindow", "IN"))
         self.label_3.setText(_translate("MainWindow", "OUT"))
-        self.menuHELP.setTitle(_translate("MainWindow", "HELP"))
-        self.menuEXIT.setTitle(_translate("MainWindow", "EXIT"))
+
 
     def take_element(self):
 

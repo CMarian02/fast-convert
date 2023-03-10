@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets, QtCore
 def init_in_list(central_widget):
     
     in_convert_list = QtWidgets.QListWidget(central_widget)
-    in_convert_list.setGeometry(QtCore.QRect(10, 80, 121, 231))
+    in_convert_list.setGeometry(QtCore.QRect(10, 80, 121, 221))
     in_convert_list.setObjectName("in_convert_list")
 
     categ_in_1 = QtWidgets.QListWidgetItem()
