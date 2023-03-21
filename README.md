@@ -14,5 +14,5 @@
 <p align = "center"><b>[➕]</b>Adding more sizes.<br>
 <b>[🔎]</b>After reaching a larger number of sizes add a search box.</p>
 <h3 align = "center">[🎬]A video presentation can be found below.[🎬]</h3>
-<p align = "center">[🚨]Temporarily unavailable </p>
+<p align = "center">https://youtu.be/6Ofe_vpmFmM</p>
 <h3 align = "center">[✨]The project is considered fully completed.[✨]</h3>
